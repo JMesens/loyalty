@@ -1,9 +1,9 @@
 .DS_Store
 .idea/
 .mvn/
-loyalty-program.iml
-customer.iml
+*.iml
 mvnw
 mvnw.cmd
-target/
-
+award/target/
+customer/target/
+loyalty-program/target/
