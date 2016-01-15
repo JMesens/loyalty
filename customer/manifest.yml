@@ -1,2 +1,4 @@
 name: customer
 buildpack: java_buildpack_offline
+memory: 512M
+disk_quota: 256M
