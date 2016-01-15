@@ -1,0 +1,2 @@
+name: customer
+buildpack: java_buildpack_offline

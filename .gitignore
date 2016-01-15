@@ -2,6 +2,7 @@
 .idea/
 .mvn/
 loyalty-program.iml
+customer.iml
 mvnw
 mvnw.cmd
 target/
