@@ -7,7 +7,5 @@ spring:
       server:
         git:
           uri: https://github.com/JMesens/loyalty.git
-
-spring:
   application:
     name: config-server
