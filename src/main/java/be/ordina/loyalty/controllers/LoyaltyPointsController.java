@@ -6,10 +6,9 @@ import be.ordina.loyalty.repository.LoyaltyPointsRepository;
 import be.ordina.loyalty.resources.LoyaltyPointsResource;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpEntity;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.*;
 
 import static org.springframework.http.ResponseEntity.ok;
 
@@ -28,6 +27,15 @@ public class LoyaltyPointsController {
         LoyaltyPoints loyaltyPoints = loyaltyPointsRepository.getLoyaltyPointsByCustomerId(customerId);
 
         return ok(loyaltyPointsAssembler.toResource(loyaltyPoints));
+    }
+
+    @RequestMapping(method = RequestMethod.POST,value = "/{customerId}/updatePoints")
+    public ResponseEntity<Void> updatePoints(@PathVariable Long customerId, @RequestBody Integer points){
+        LoyaltyPoints loyaltyPoints = loyaltyPointsRepository.getLoyaltyPointsByCustomerId(customerId);
+        loyaltyPoints.setPoints(points);
+        loyaltyPointsRepository.save(loyaltyPoints);
+
+        return new ResponseEntity<>(HttpStatus.OK);
     }
 
 }
