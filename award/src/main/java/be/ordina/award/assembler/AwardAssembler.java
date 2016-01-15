@@ -16,6 +16,8 @@ public class AwardAssembler extends ResourceAssemblerSupport<Award, AwardResourc
     public AwardResource toResource(Award entity) {
         AwardResource resource = createResourceWithId(entity.getId(), entity);
         resource.setPrice(entity.getPrice());
+        resource.setName(entity.getName());
+        resource.setLoyaltyProgram(entity.getLoyaltyProgramId());
 
         return resource;
     }
