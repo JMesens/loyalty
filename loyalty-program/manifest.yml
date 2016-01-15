@@ -1,0 +1,2 @@
+name: loyalty-program
+buildpack: java_buildpack_offline
