@@ -8,3 +8,6 @@ spring:
 eureka:
   client:
     registerWithEureka: false
+  instance:
+    hostname: ${vcap.application.uris[0]:localhost}
+    nonSecurePort: 80

@@ -1,0 +1,5 @@
+name: config-server
+buildpack: java_buildpack_offline
+memory: 512M
+disk_quota: 256M
+path: target/config-server-1.0-SNAPSHOT.jar
