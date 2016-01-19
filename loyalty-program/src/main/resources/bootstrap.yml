@@ -5,6 +5,9 @@ spring:
   application:
     name: loyalty-program
 eureka:
+  instance:
+    hostname: ${vcap.application.uris[0]}
+    nonSecurePort: 80
   client:
       serviceUrl:
         defaultZone: http://service-registry.195.13.10.14.xip.io/eureka
