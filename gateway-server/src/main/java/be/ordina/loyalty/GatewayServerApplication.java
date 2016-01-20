@@ -29,11 +29,12 @@ public class GatewayServerApplication {
 
         ResourceSupport resource = new ResourceSupport();
         String self = linkToCurrentMapping().toString();
-        resource.add(new Link(self + "/loyalty-program/loyaltyPoints/{id}").withRel("loyalty-program"));
-        resource.add(new Link(self + "/loyalty-program/loyaltyProgram/{id}").withRel("loyalty-program"));
+        resource.add(new Link(self + "/loyalty-program/loyaltyPoints/{id}").withRel("loyaltyPoints"));
+        resource.add(new Link(self + "/loyalty-program/loyaltyProgram/{id}").withRel("loyaltyProgram"));
+        resource.add(new Link(self + "/award/award/").withRel("awards"));
         resource.add(new Link(self + "/award/award/{id}").withRel("award"));
-        resource.add(new Link(self + "/award/findByLoyaltyProgramId/{loyaltyProgramId}").withRel("award"));
-        resource.add(new Link(self + "/award/findEligibleAwards/{loyaltyProgramId}/{points}").withRel("award"));
+        resource.add(new Link(self + "/award/award/byLoyaltyProgram/{loyaltyProgramId}").withRel("awardByLoyaltyProgram"));
+        resource.add(new Link(self + "/award/award/eligibleAwards/{loyaltyProgramId}/{points}").withRel("eligibleAwards"));
         resource.add(new Link(self + "/customer/customer/{id}").withRel("customer"));
 
         return ok(resource);
