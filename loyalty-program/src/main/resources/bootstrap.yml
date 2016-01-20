@@ -4,6 +4,14 @@ server:
 spring:
   application:
     name: loyalty-program
+  sleuth:
+    log:
+      json:
+        enabled: true
+
+---
+spring:
+    profiles: cloud
 eureka:
   instance:
     hostname: ${vcap.application.uris[0]}

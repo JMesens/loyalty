@@ -5,10 +5,13 @@ spring:
   application:
     name: award
 
+---
+spring:
+    profiles: cloud
 eureka:
   instance:
     hostname: ${vcap.application.uris[0]}
-    nonSecurePort: 80
+    nonSecurePort: 80c
   client:
       serviceUrl:
         defaultZone: http://service-registry.195.13.10.14.xip.io/eureka

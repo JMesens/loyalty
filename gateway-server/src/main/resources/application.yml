@@ -5,6 +5,9 @@ spring:
   application:
     name: gateway
 
+---
+spring:
+    profiles: cloud
 eureka:
   client:
       serviceUrl:
