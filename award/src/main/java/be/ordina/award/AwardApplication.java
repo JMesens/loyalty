@@ -23,6 +23,6 @@ public class AwardApplication implements CommandLineRunner {
     public void run(String... strings) throws Exception {
         awardRepository.save(new Award("Gold Award", 1L, 100));
         awardRepository.save(new Award("Bronze Award", 2L, 100));
-        awardRepository.save(new Award("An Other Bronze Award", 2L, 100));
+        awardRepository.save(new Award("An Other Bronze Award", 2L, 200));
     }
 }
