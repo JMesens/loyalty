@@ -12,6 +12,9 @@ spring:
 ---
 spring:
     profiles: cloud
+    jpa:
+      hibernate:
+        ddl-auto: create
 eureka:
   instance:
     hostname: ${vcap.application.uris[0]}
