@@ -9,6 +9,9 @@ import org.springframework.stereotype.Component;
 
 import java.util.List;
 
+import static org.springframework.hateoas.mvc.ControllerLinkBuilder.linkTo;
+import static org.springframework.hateoas.mvc.ControllerLinkBuilder.methodOn;
+
 @Component
 public class AwardAssembler extends ResourceAssemblerSupport<Award, AwardResource> {
     public AwardAssembler() {
@@ -21,6 +24,7 @@ public class AwardAssembler extends ResourceAssemblerSupport<Award, AwardResourc
         resource.setPrice(entity.getPrice());
         resource.setName(entity.getName());
         resource.setLoyaltyProgram(entity.getLoyaltyProgramId());
+        resource.add(linkTo(methodOn(AwardController.class).getAwardsByLoyaltyProgram(entity.getLoyaltyProgramId())).withRel("byLoyaltyProgram"));
 
         return resource;
     }
@@ -28,6 +32,7 @@ public class AwardAssembler extends ResourceAssemblerSupport<Award, AwardResourc
     public Resources<AwardResource> toAwardResources(Iterable<? extends Award> entities) {
         List<AwardResource> awardsList = super.toResources(entities);
         Resources<AwardResource> awardResources = new Resources<>(awardsList);
+        awardResources.add(linkTo(methodOn(AwardController.class).getAllAwards()).withRel("allAwards"));
 
         return awardResources;
     }

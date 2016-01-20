@@ -28,28 +28,28 @@ public class AwardController {
     @Autowired
     AwardAssembler awardAssembler;
 
-    @RequestMapping(method = RequestMethod.GET, value = "/")
+    @RequestMapping(method = RequestMethod.GET, value = "/", produces = "application/json")
     public HttpEntity<Resources<AwardResource>> getAllAwards() {
 
         return ok(awardAssembler.toAwardResources(awardRepository.findAll()));
     }
 
-    @RequestMapping(method = RequestMethod.GET, value = "/{awardId}")
+    @RequestMapping(method = RequestMethod.GET, value = "/{awardId}", produces = "application/json")
     public HttpEntity<AwardResource> getAwardById(@PathVariable Long awardId) {
         Award award = awardRepository.findOne(awardId);
 
         return ok(awardAssembler.toResource(award));
     }
 
-    @RequestMapping(method = RequestMethod.GET, value = "/findByLoyaltyProgramId/{loyaltyProgramId}")
+    @RequestMapping(method = RequestMethod.GET, value = "/byLoyaltyProgram/{loyaltyProgramId}", produces = "application/json")
     public HttpEntity<Resources<AwardResource>> getAwardsByLoyaltyProgram(@PathVariable Long loyaltyProgramId) {
         List<Award> awards = awardRepository.findAwardsByLoyaltyProgramId(loyaltyProgramId);
 
         return ok(awardAssembler.toAwardResources(awards));
     }
 
-    @RequestMapping(method = RequestMethod.GET, value = "/findEligibleAwards/{loyaltyProgramId}/{points}")
-    public HttpEntity<Resources<AwardResource>> getEligibleAwards(@PathVariable Long loyaltyProgramId, @PathVariable Integer points){
+    @RequestMapping(method = RequestMethod.GET, value = "/eligibleAwards/{loyaltyProgramId}/{points}", produces = "application/json")
+    public HttpEntity<Resources<AwardResource>> getEligibleAwards(@PathVariable Long loyaltyProgramId, @PathVariable Integer points) {
         List<Award> awards = awardRepository.findAwardsByLoyaltyProgramIdAndPriceLessThanEqual(loyaltyProgramId, points);
 
         return ok(awardAssembler.toAwardResources(awards));
