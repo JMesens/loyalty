@@ -17,4 +17,4 @@ eureka:
     nonSecurePort: 80
   client:
       serviceUrl:
-        defaultZone: http://service-registry.195.13.10.14.xip.io/eureka
+        defaultZone: http://service-registry.195.13.10.14.xip.io/eureka/
