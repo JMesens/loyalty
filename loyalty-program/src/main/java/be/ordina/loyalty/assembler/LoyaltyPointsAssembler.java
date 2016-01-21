@@ -23,7 +23,7 @@ public class LoyaltyPointsAssembler extends ResourceAssemblerSupport<LoyaltyPoin
         LoyaltyPointsResource resource = createResourceWithId(entity.getId(), entity);
         resource.setPoints(entity.getPoints());
         resource.setCustomerId(entity.getCustomerId());
-        resource.add(linkTo(methodOn(LoyaltyProgramController.class).getLoyaltyProgram(entity.getId())).withRel("loyaltyProgram"));
+        resource.add(linkTo(methodOn(LoyaltyProgramController.class).getLoyaltyProgram(entity.getLoyaltyProgram().getId())).withRel("loyaltyProgram"));
         resource.add(linkTo(methodOn(LoyaltyPointsController.class).updatePoints(entity.getCustomerId(), null)).withRel("updatePoints"));
 
         return resource;
