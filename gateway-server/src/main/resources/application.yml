@@ -5,6 +5,20 @@ spring:
   application:
     name: gateway
 
+zuul:
+  ignoredServices: '*'
+  routes:
+    awards:
+      path: /awards/**
+      serviceId: award
+    customers:
+      path: /customers/**
+      serviceId: customer
+    loyalty-programs:
+      path: /loyaltyPrograms/**
+      serviceId: loyalty-program
+
+
 ---
 spring:
     profiles: cloud
