@@ -17,7 +17,7 @@ import java.util.List;
 import static org.springframework.http.ResponseEntity.ok;
 
 @RestController
-@RequestMapping("/loyaltyProgram")
+@RequestMapping("/")
 public class LoyaltyProgramController {
 
     @Autowired

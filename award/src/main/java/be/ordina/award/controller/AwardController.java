@@ -19,7 +19,7 @@ import java.util.List;
 import static org.springframework.http.ResponseEntity.ok;
 
 @RestController
-@RequestMapping("/award")
+@RequestMapping("/")
 public class AwardController {
 
     @Autowired
@@ -41,7 +41,7 @@ public class AwardController {
         return ok(awardAssembler.toResource(award));
     }
 
-    @RequestMapping(method = RequestMethod.GET, value = "/byLoyaltyProgram/{loyaltyProgramId}", produces = "application/json")
+    @RequestMapping(method = RequestMethod.GET, value = "/loyaltyProgram/{loyaltyProgramId}", produces = "application/json")
     public HttpEntity<Resources<AwardResource>> getAwardsByLoyaltyProgram(@PathVariable Long loyaltyProgramId) {
         List<Award> awards = awardRepository.findAwardsByLoyaltyProgramId(loyaltyProgramId);
 
