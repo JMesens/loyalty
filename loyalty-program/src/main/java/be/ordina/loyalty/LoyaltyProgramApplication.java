@@ -14,30 +14,30 @@ import sun.tools.jar.CommandLine;
 
 @SpringBootApplication
 @EnableEurekaClient
-public class LoyaltyProgramApplication implements CommandLineRunner{
+public class LoyaltyProgramApplication implements CommandLineRunner {
 
-	public static void main(String[] args) {
-		SpringApplication.run(LoyaltyProgramApplication.class, args);
-	}
+    public static void main(String[] args) {
+        SpringApplication.run(LoyaltyProgramApplication.class, args);
+    }
 
-	@Autowired
-	LoyaltyProgramRepository loyaltyProgramRepository;
+    @Autowired
+    LoyaltyProgramRepository loyaltyProgramRepository;
 
-	@Autowired
-	LoyaltyPointsRepository loyaltyPointsRepository;
+    @Autowired
+    LoyaltyPointsRepository loyaltyPointsRepository;
 
-	@Override
-	public void run(String... strings) throws Exception {
+    @Override
+    public void run(String... strings) throws Exception {
 
-		LoyaltyProgram gold = new LoyaltyProgram("GOLD");
-		loyaltyProgramRepository.save(gold);
-		loyaltyProgramRepository.save(new LoyaltyProgram("BRONZE"));
+        LoyaltyProgram gold = new LoyaltyProgram("GOLD");
+        loyaltyProgramRepository.save(gold);
+        LoyaltyProgram bronze = new LoyaltyProgram("BRONZE");
+        loyaltyProgramRepository.save(bronze);
 
-		loyaltyPointsRepository.save(new LoyaltyPoints(1L,gold,200));
-		loyaltyPointsRepository.save(new LoyaltyPoints(2L,gold,500));
+        loyaltyPointsRepository.save(new LoyaltyPoints(1L, gold, 200));
+        loyaltyPointsRepository.save(new LoyaltyPoints(2L, gold, 500));
+        loyaltyPointsRepository.save(new LoyaltyPoints(3L, bronze, 300));
 
 
-
-
-	}
+    }
 }

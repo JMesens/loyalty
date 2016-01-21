@@ -23,5 +23,6 @@ public class CustomerApplication implements CommandLineRunner {
     public void run(String... strings) throws Exception {
         customerRepository.save(new Customer("User"));
         customerRepository.save(new Customer("Admin"));
+        customerRepository.save(new Customer("Business User"));
     }
 }
