@@ -2,6 +2,7 @@ package be.ordina.loyalty;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.cloud.client.circuitbreaker.EnableCircuitBreaker;
 import org.springframework.cloud.netflix.zuul.EnableZuulProxy;
 import org.springframework.hateoas.Link;
 import org.springframework.hateoas.ResourceSupport;
@@ -18,6 +19,7 @@ import static org.springframework.http.ResponseEntity.ok;
 @SpringBootApplication
 @EnableZuulProxy
 @RestController
+@EnableCircuitBreaker
 public class GatewayServerApplication {
 
     public static void main(String[] args) {
