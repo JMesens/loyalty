@@ -31,6 +31,7 @@ public class GatewayServerApplication {
 
         ResourceSupport resource = new ResourceSupport();
         String self = linkToCurrentMapping().toString();
+        self = self.replace("://","://admin:admin@");
         resource.add(new Link(self + "/loyaltyPrograms/loyaltyPoints/{customerId}").withRel("loyaltyPoints"));
         resource.add(new Link(self + "/loyaltyPrograms/{loyaltyProgramId}").withRel("loyaltyProgram"));
         resource.add(new Link(self + "/awards/").withRel("awards"));
