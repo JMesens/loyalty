@@ -3,10 +3,11 @@ package be.ordina.award.assembler;
 import be.ordina.award.controller.AwardController;
 import be.ordina.award.entity.Award;
 import be.ordina.award.resource.AwardResource;
-import org.springframework.hateoas.Resources;
+import be.ordina.award.resource.AwardsResource;
 import org.springframework.hateoas.mvc.ResourceAssemblerSupport;
 import org.springframework.stereotype.Component;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import static org.springframework.hateoas.mvc.ControllerLinkBuilder.linkTo;
@@ -29,11 +30,12 @@ public class AwardAssembler extends ResourceAssemblerSupport<Award, AwardResourc
         return resource;
     }
 
-    public Resources<AwardResource> toAwardResources(Iterable<? extends Award> entities) {
+    public AwardsResource toAwardsResource(Iterable<? extends Award> entities) {
         List<AwardResource> awardsList = super.toResources(entities);
-        Resources<AwardResource> awardResources = new Resources<>(awardsList);
-        awardResources.add(linkTo(methodOn(AwardController.class).getAllAwards()).withRel("allAwards"));
+        AwardsResource resource = new AwardsResource((ArrayList<AwardResource>) awardsList);
+        resource.add(linkTo(methodOn(AwardController.class).getAllAwards()).withRel("allAwards"));
 
-        return awardResources;
+        return resource;
     }
+
 }
