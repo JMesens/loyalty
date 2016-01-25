@@ -4,16 +4,18 @@ import be.ordina.loyalty.model.LoyaltyPoints;
 import be.ordina.loyalty.model.LoyaltyProgram;
 import be.ordina.loyalty.repository.LoyaltyPointsRepository;
 import be.ordina.loyalty.repository.LoyaltyProgramRepository;
-import be.ordina.loyalty.resources.LoyaltyProgramResource;
+import feign.auth.BasicAuthRequestInterceptor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.cloud.netflix.eureka.EnableEurekaClient;
-import sun.tools.jar.CommandLine;
+import org.springframework.cloud.netflix.feign.EnableFeignClients;
+import org.springframework.context.annotation.Bean;
 
 @SpringBootApplication
 @EnableEurekaClient
+@EnableFeignClients
 public class LoyaltyProgramApplication implements CommandLineRunner {
 
     public static void main(String[] args) {
@@ -25,6 +27,11 @@ public class LoyaltyProgramApplication implements CommandLineRunner {
 
     @Autowired
     LoyaltyPointsRepository loyaltyPointsRepository;
+
+    @Bean
+    public BasicAuthRequestInterceptor basicAuthRequestInterceptor() {
+        return new BasicAuthRequestInterceptor("admin", "admin");
+    }
 
     @Override
     public void run(String... strings) throws Exception {
