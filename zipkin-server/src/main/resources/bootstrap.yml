@@ -1,0 +1,12 @@
+server:
+  port: ${PORT:9411}
+
+logging:
+  pattern:
+    level: '[trace=%X{X-Trace-Id:-},span=%X{X-Span-Id:-}] %5p'
+
+spring:
+    sleuth:
+      log:
+        json:
+          enabled: true
