@@ -1,0 +1,20 @@
+= Award Service
+Ordina
+:doctype: book
+:icons: font
+:source-highlighter: highlightjs
+:toclevels: 4
+:sectlinks:
+
+[[resources-sensor]]
+== Listing the awards
+
+A `Get` request to access the awards.
+
+== Request structure
+
+include::{snippets}/awards/http-request.adoc[]
+
+== Example response
+
+include::{snippets}/awards/http-response.adoc[]

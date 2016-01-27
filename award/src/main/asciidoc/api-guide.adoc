@@ -1,0 +1,71 @@
+= Award Service
+Ordina
+:doctype: book
+:icons: font
+:source-highlighter: highlightjs
+:toclevels: 4
+:sectlinks:
+
+[[resources-index]]
+= Awards
+
+[[resources-sensor]]
+== Listing the awards
+
+A `Get` request to access the awards.
+
+== Request structure
+
+include::{snippets}/awards/http-request.adoc[]
+
+== Example response
+
+include::{snippets}/awards/http-response.adoc[]
+
+
+== Retrieving an award
+
+A `Get` request to access the award.
+
+== Request structure
+
+include::{snippets}/award/http-request.adoc[]
+
+== Example response
+
+include::{snippets}/award/http-response.adoc[]
+
+
+
+== Retrieving all awards for a given loyalty program
+
+A `Get` request to retrieve the awards.
+
+== Request structure
+
+include::{snippets}/awardLoyaltyProgram/http-request.adoc[]
+
+== Example response
+
+include::{snippets}/awardLoyaltyProgram/http-response.adoc[]
+
+== Parameters explained
+
+include::{snippets}/awardLoyaltyProgram/path-parameters.adoc[]
+
+
+== Retrieving all awards for a given loyalty program with a lower price then the given points
+
+A `Get` request to retrieve the awards.
+
+== Request structure
+
+include::{snippets}/awardEligible/http-request.adoc[]
+
+== Example response
+
+include::{snippets}/awardEligible/http-response.adoc[]
+
+== Parameters explained
+
+include::{snippets}/awardEligible/path-parameters.adoc[]
