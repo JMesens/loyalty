@@ -36,6 +36,7 @@ public class GatewayServerApplication {
         resource.add(new Link(self + "/awards/loyaltyProgram/{loyaltyProgramId}").withRel("awardByLoyaltyProgram"));
         resource.add(new Link(self + "/awards/eligibleAwards/{loyaltyProgramId}/{points}").withRel("eligibleAwards"));
         resource.add(new Link(self + "/customers/{customerId}").withRel("customer"));
+        resource.add(new Link(self + "/customers/").withRel("customers"));
         resource.add(new Link("https://hystrix-server.195.13.10.14.xip.io/hystrix/monitor?stream=http%3A%2F%2Fgateway-server.195.13.10.14.xip.io%2Fhystrix.stream"));
 
         return ok(resource);
