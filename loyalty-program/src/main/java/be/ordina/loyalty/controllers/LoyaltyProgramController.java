@@ -1,6 +1,5 @@
 package be.ordina.loyalty.controllers;
 
-import be.ordina.loyalty.assembler.LoyaltyPointsAssembler;
 import be.ordina.loyalty.assembler.LoyaltyProgramAssembler;
 import be.ordina.loyalty.model.LoyaltyProgram;
 import be.ordina.loyalty.repository.LoyaltyProgramRepository;
@@ -11,8 +10,6 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
-
-import java.util.List;
 
 import static org.springframework.http.ResponseEntity.ok;
 
