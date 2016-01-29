@@ -31,6 +31,7 @@ public class GatewayServerApplication {
         self = self.replace("://","://admin:admin@");
         resource.add(new Link(self + "/loyaltyPrograms/loyaltyPoints/{customerId}").withRel("loyaltyPoints"));
         resource.add(new Link(self + "/loyaltyPrograms/{loyaltyProgramId}").withRel("loyaltyProgram"));
+        resource.add(new Link(self + "/loyaltyPrograms/").withRel("loyaltyPrograms"));
         resource.add(new Link(self + "/awards/").withRel("awards"));
         resource.add(new Link(self + "/awards/{awardId}").withRel("award"));
         resource.add(new Link(self + "/awards/loyaltyProgram/{loyaltyProgramId}").withRel("awardByLoyaltyProgram"));
